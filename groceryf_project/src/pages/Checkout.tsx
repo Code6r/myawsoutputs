@@ -227,9 +227,15 @@ const Checkout = () => {
                 <span>Delivery</span>
                 <span className="text-emerald-600">Free</span>
               </div>
+              {total > 200 && (
+                <div className="flex items-center justify-between text-xs text-slate-600">
+                  <span>Discount (Above ₹200)</span>
+                  <span className="font-semibold text-emerald-600">-{formatCurrency(25)}</span>
+                </div>
+              )}
               <div className="mt-2 flex items-center justify-between text-sm font-semibold text-slate-900">
                 <span>Total</span>
-                <span>{formatCurrency(total)}</span>
+                <span>{formatCurrency(total > 200 ? total - 25 : total)}</span>
               </div>
             </div>
           </aside>
